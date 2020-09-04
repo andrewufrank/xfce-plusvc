@@ -10,6 +10,6 @@ FROM andrewufrank/xfce-pluseditors:v1.1
 
 
 # RUN  dpkg -i code_1.48.2-1598353430_amd64.deb; apt-get install -y -f 
-RUN apt install ./code_1.48.2-1598353430_amd64.deb
+RUN apt install /home/frank/Workspace8/dockerfiles/xfce-plusvisucalcode/code_1.48.2-1598353430_amd64.deb
 
 CMD ["startxfce4"]
