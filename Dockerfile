@@ -9,6 +9,6 @@
 FROM andrewufrank/xfce-pluseditors:v1.1
 
 RUN env DEBIAN_FRONTEND=noninteractive  \
-    dpkg -i ./code_1.48.2-1598353430_amd64.deb 
+    dpkg -i 'code_1.48.2-1598353430_amd64.deb' 
 
 CMD ["startxfce4"]
