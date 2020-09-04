@@ -15,17 +15,20 @@ FROM andrewufrank/xfce-pluseditors:v1.1
 RUN 	apt-get update &&  \ 
         env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 		 apt-transport-https \
-		 wget
+		 wget curl   ca-certificates
 
-RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-RUN sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-RUN sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+#RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+# RUN sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+# RUN curl -L https://packages.microsoft.com/keys/microsoft.asc |  apt-key add -
+
+#RUN curl https://packages.microsoft.com/keys/microsoft.asc |  apt-key add -
+#RUN  sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+RUN   echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
 
 
 
-RUN 	apt-get update &&  \ 
-        env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-		 code 
+RUN 	apt-get update --allow-unauthenticated &&  \ 
+        apt-get install -y --no-install-recommends --allow-unauthenticated code 
 
 
 CMD ["startxfce4"]
