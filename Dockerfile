@@ -1,12 +1,12 @@
 # buildx with 
-#docker buildx build -t andrewufrank/xfce-plusvisualcode:v1 --platform linux/arm/v7,linux/arm64,linux/amd64  --push .
+#docker buildx build -t andrewufrank/xfce-plusvisualcode:deb10.1.x1.1.e1.vc1 --platform linux/arm/v7,linux/arm64,linux/amd64  --push .
 
 # or docker build -t andrewufrank/xfce-plusvisualcode-amd:v1 .
 # add visual studio code to xfce 
 
  
 
-FROM andrewufrank/xfce-pluseditors:v1.1
+FROM andrewufrank/xfce-pluseditors:deb10.1.x1.1.e1
 
 
 # RUN  dpkg -i code_1.48.2-1598353430_amd64.deb; apt-get install -y -f 
